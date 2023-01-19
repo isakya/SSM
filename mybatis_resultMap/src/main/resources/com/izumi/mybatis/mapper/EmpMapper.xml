@@ -13,6 +13,8 @@
            如：emp_id ==> empId
 
         3、使用自定义resultMap自定义映射处理
+            处理多䫕的映射关系：
+                1. 级联方式处理
     -->
 
     <!--
@@ -40,5 +42,27 @@
         <!--select emp_id empId, emp_name empName, age, gender from t_emp where emp_id = #{empId}-->
 
         select * from t_emp where emp_id = #{empId}
+    </select>
+
+
+    <resultMap id="empAndDeptResultMap" type="Emp">
+        <!--查询结果如下：-->
+        <!--Emp{empId=1, empName='张三', age=20, gender='男', dept=Dept{deptId=1, deptName='A'}}-->
+        <id column="emp_id" property="empId" />
+        <result column="emp_name" property="empName" />
+        <result column="age" property="age" />
+        <result column="gender" property="gender" />
+        <result column="dept_id" property="dept.deptId" />
+        <result column="dept_name" property="dept.deptName" />
+    </resultMap>
+
+    <!--Emp getEmpAndDeptByEmpId(@Param("empId") Integer empId);-->
+    <select id="getEmpAndDeptByEmpId" resultMap="empAndDeptResultMap">
+        select
+        t_emp.*, t_dept.*
+        from
+        t_emp left join t_dept
+        on t_emp.dept_id = t_dept.dept_id
+        where t_emp.emp_id = #{empId}
     </select>
 </mapper>

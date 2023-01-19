@@ -5,15 +5,17 @@ public class Emp {
     private String empName;
     private Integer age;
     private String gender;
+    private Dept dept;
 
     public Emp() {
     }
 
-    public Emp(Integer empId, String empName, Integer age, String gender) {
+    public Emp(Integer empId, String empName, Integer age, String gender, Dept dept) {
         this.empId = empId;
         this.empName = empName;
         this.age = age;
         this.gender = gender;
+        this.dept = dept;
     }
 
     public Integer getEmpId() {
@@ -48,6 +50,14 @@ public class Emp {
         this.gender = gender;
     }
 
+    public Dept getDept() {
+        return dept;
+    }
+
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
+
     @Override
     public String toString() {
         return "Emp{" +
@@ -55,6 +65,7 @@ public class Emp {
                 ", empName='" + empName + '\'' +
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
+                ", dept=" + dept +
                 '}';
     }
 }
