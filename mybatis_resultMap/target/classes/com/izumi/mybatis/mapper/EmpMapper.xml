@@ -3,17 +3,33 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.izumi.mybatis.mapper.EmpMapper">
-    <!--Emp getEmpByEmpId(@Param("empId") Integer empId);-->
-    <select id="getEmpByEmpId" resultType="Emp">
-        <!--
-            字段名和属性名不一致的情况，如何处理映射关系
-                1、为查询的字段设置别名，和属性名保持一致
-                2、当字段符合MySQL的要求使用_，而属性符合java的要求使用驼峰，
-                   此时可以在MyBatis的核心配置文件中设置一个全局的配置，
-                   可以自动将下划线映射为驼峰！
+    <!--
+    字段名和属性名不一致的情况，如何处理映射关系
+        1、为查询的字段设置别名，和属性名保持一致
 
-        -->
+        2、当字段符合MySQL的要求使用_，而属性符合java的要求使用驼峰，
+           此时可以在MyBatis的核心配置文件中设置一个全局的配置，
+           可以自动将下划线映射为驼峰！
+           如：emp_id ==> empId
+
+        3、使用自定义resultMap自定义映射处理
+    -->
+
+    <!--自定义映射-->
+    <resultMap id="empResultMap" type="Emp">
+        <id column="emp_id" property="empId" />
+        <result column="emp_name" property="empName" />
+        <result column="age" property="age" />
+        <result column="gender" property="gender" />
+    </resultMap>
+    
+    <!--Emp getEmpByEmpId(@Param("empId") Integer empId);-->
+    <select id="getEmpByEmpId" resultMap="empResultMap">
+        select * from t_emp where emp_id = #{empId}
+    </select>
+    <select id="getEmpByEmpIdOld" resultType="Emp">
         <!--select emp_id empId, emp_name empName, age, gender from t_emp where emp_id = #{empId}-->
+
         select * from t_emp where emp_id = #{empId}
     </select>
 </mapper>
