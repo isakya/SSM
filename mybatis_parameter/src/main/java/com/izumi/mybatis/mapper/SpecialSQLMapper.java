@@ -14,4 +14,7 @@ public interface SpecialSQLMapper {
 
     // 动态设置表名，查询用户信息
     List<User> getUserList(@Param("tableName") String tableName);
+
+    // 添加用户信息并获取自增的主键
+    void insertUser(User user);
 }

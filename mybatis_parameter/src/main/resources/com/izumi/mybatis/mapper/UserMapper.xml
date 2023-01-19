@@ -32,5 +32,4 @@
     <select id="checkLoginByParam" resultType="User">
         select * from t_user where username = #{username} and password = #{password}
     </select>
-
 </mapper>
