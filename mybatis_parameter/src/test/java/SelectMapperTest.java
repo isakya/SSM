@@ -1,5 +1,5 @@
-import com.izumi.mybatis.mapper.SelectMapper;
-import com.izumi.mybatis.pojo.User;
+import com.izumi.mybatis.utils.mapper.SelectMapper;
+import com.izumi.mybatis.utils.pojo.User;
 import com.izumi.mybatis.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;

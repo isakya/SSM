@@ -1,5 +1,5 @@
-import com.izumi.mybatis.mapper.UserMapper;
-import com.izumi.mybatis.pojo.User;
+import com.izumi.mybatis.utils.mapper.UserMapper;
+import com.izumi.mybatis.utils.pojo.User;
 
 import com.izumi.mybatis.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;

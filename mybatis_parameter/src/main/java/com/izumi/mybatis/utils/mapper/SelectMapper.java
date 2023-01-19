@@ -1,7 +1,6 @@
-package com.izumi.mybatis.mapper;
+package com.izumi.mybatis.utils.mapper;
 
-import com.izumi.mybatis.pojo.User;
-import org.apache.ibatis.annotations.MapKey;
+import com.izumi.mybatis.utils.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
