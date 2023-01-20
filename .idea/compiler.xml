@@ -8,14 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="mybatis_parameter" />
         <module name="mybatis_resultMap" />
+        <module name="mybatic_mbg" />
         <module name="mybatis_dynamicSQL" />
         <module name="mybatis_helloworld" />
         <module name="mybatis_cache" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="mybatis_cache" target="8" />
-      <module name="mybatis_dynamicSQL" target="8" />
+      <module name="mybatic_mbg" target="8" />
+      <module name="mybatis_cache" target="1.5" />
+      <module name="mybatis_dynamicSQL" target="1.5" />
       <module name="mybatis_helloworld" target="8" />
       <module name="mybatis_parameter" target="8" />
       <module name="mybatis_resultMap" target="1.5" />
