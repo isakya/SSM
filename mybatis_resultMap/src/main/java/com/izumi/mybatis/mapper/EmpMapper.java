@@ -10,4 +10,7 @@ public interface EmpMapper {
 
     // 获取员工以及对应的部门信息
     Emp getEmpAndDeptByEmpId(@Param("empId") Integer empId);
+
+    // 通过分步查询 查询员工以及所对应的部门信息的第一步
+    Emp getEmpAndDeptByStepOne(@Param("empId") Integer empId);
 }
