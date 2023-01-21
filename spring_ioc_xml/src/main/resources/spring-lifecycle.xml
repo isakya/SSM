@@ -8,4 +8,6 @@
         <property name="password" value="123456"></property>
         <property name="age" value="21"></property>
     </bean>
+
+    <bean id="myBeanPostProcessor" class="com.izumi.spring.process.MyBeanPostProcessor"></bean>
 </beans>
