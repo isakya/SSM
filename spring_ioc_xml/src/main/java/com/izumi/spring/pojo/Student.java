@@ -1,6 +1,7 @@
 package com.izumi.spring.pojo;
 
 import java.util.Arrays;
+import java.util.Map;
 
 public class Student implements Person {
     private Integer sid;
@@ -11,10 +12,12 @@ public class Student implements Person {
     private Clazz clazz;
     private String[] hobby;
 
+    private Map<String, Teacher> teacherMap;
+
     public Student() {
     }
 
-    public Student(Integer sid, String sname, Integer age, String gender, Double score, Clazz clazz, String[] hobby) {
+    public Student(Integer sid, String sname, Integer age, String gender, Double score, Clazz clazz, String[] hobby, Map<String, Teacher> teacherMap) {
         this.sid = sid;
         this.sname = sname;
         this.age = age;
@@ -22,6 +25,7 @@ public class Student implements Person {
         this.score = score;
         this.clazz = clazz;
         this.hobby = hobby;
+        this.teacherMap = teacherMap;
     }
 
     public Student(String s, String s2, String age, String gender) {
@@ -93,6 +97,15 @@ public class Student implements Person {
                 ", score=" + score +
                 ", clazz=" + clazz +
                 ", hobby=" + Arrays.toString(hobby) +
+                ", teacherMap=" + teacherMap +
                 '}';
+    }
+
+    public Map<String, Teacher> getTeacherMap() {
+        return teacherMap;
+    }
+
+    public void setTeacherMap(Map<String, Teacher> teacherMap) {
+        this.teacherMap = teacherMap;
     }
 }

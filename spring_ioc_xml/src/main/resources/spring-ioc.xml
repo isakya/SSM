@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
     <bean id="studentOne" class="com.izumi.spring.pojo.Student"></bean>
     <bean id="studentTwo" class="com.izumi.spring.pojo.Student">
@@ -61,6 +62,7 @@
                 <value>烫头</value>
             </array>
         </property>
+        <property name="teacherMap" ref="teacherMap"></property>
     </bean>
 
     <bean id="clazzOne" class="com.izumi.spring.pojo.Clazz">
@@ -75,10 +77,29 @@
         <!--    </list>-->
         <!--</property>-->
     </bean>
+
+    <bean id="teacherOne" class="com.izumi.spring.pojo.Teacher">
+        <property name="tid" value="10086"></property>
+        <property name="tname" value="大宝"></property>
+    </bean>
+    <bean id="teacherTwo" class="com.izumi.spring.pojo.Teacher">
+        <property name="tid" value="10010"></property>
+        <property name="tname" value="小宝"></property>
+    </bean>
     <!--配置一个集合类型的bean，需要使用util的约束-->
     <util:list id="studentList">
         <ref bean="studentOne"></ref>
         <ref bean="studentTwo"></ref>
         <ref bean="studentThree"></ref>
     </util:list>
+
+    <util:map id="teacherMap">
+        <entry key="10086" value-ref="teacherOne"></entry>
+        <entry key="10010"  value-ref="teacherTwo"></entry>
+    </util:map>
+
+    <bean id="studentSix" class="com.izumi.spring.pojo.Student"
+          p:sid="1005" p:sname="小明" p:teacherMap-ref="teacherMap">
+
+    </bean>
 </beans>
