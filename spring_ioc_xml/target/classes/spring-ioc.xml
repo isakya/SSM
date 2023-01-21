@@ -4,9 +4,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="studentOne" class="com.izumi.spring.pojo.Student"></bean>
     <bean id="studentTwo" class="com.izumi.spring.pojo.Student">
+        <!--
+            property: 通过成员变量的set方法进行赋值
+            name: 设置需要赋值的属性名（和set方法有关）
+            value: 设置为属性所赋的值
+        -->
         <property name="sid" value="1001"></property>
         <property name="sname" value="张三"></property>
         <property name="age" value="23"></property>
         <property name="gender" value="男"></property>
+    </bean>
+
+    <bean id="studentThree" class="com.izumi.spring.pojo.Student">
+        <constructor-arg value="1002"></constructor-arg>
+        <constructor-arg value="李四"></constructor-arg>
+        <constructor-arg value="24" name="age"></constructor-arg>
+        <constructor-arg value="女"></constructor-arg>
     </bean>
 </beans>
