@@ -39,7 +39,21 @@
         <property name="sname" value="zhangsan"></property>
         <property name="age" value="26"></property>
         <property name="gender" value="男"></property>
-        <property name="clazz" ref="clazzOne"></property>
+        <!--ref: 引用IOC容器中的某个bean的id-->
+        <!--<property name="clazz" ref="clazzOne"></property>-->
+
+        <!--级联的方式，要保证提前为clazz属性赋值或实例化-->
+        <!--<property name="clazz.cid" value="2222"></property>-->
+        <!--<property name="clazz.cname" value="远大前程班"></property>-->
+
+
+        <property name="clazz">
+            <bean id="clazzInner" class="com.izumi.spring.pojo.Clazz">
+                <property name="cid" value="1111"></property>
+                <property name="cname" value="大班"></property>
+            </bean>
+        </property>
+
     </bean>
 
     <bean id="clazzOne" class="com.izumi.spring.pojo.Clazz">
