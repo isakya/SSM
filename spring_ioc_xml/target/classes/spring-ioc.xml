@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
     <bean id="studentOne" class="com.izumi.spring.pojo.Student"></bean>
     <bean id="studentTwo" class="com.izumi.spring.pojo.Student">
         <!--
@@ -30,7 +30,7 @@
         </constructor-arg>
         <constructor-arg value="24" name="age"></constructor-arg>
         <constructor-arg name="gender">
-            <null />
+            <null/>
         </constructor-arg>
     </bean>
 
@@ -48,16 +48,37 @@
 
 
         <property name="clazz">
+            <!--内部bean，只能在当前bean的内部使用，不能直接通过IOC容器获取-->
             <bean id="clazzInner" class="com.izumi.spring.pojo.Clazz">
                 <property name="cid" value="1111"></property>
                 <property name="cname" value="大班"></property>
             </bean>
         </property>
-
+        <property name="hobby">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
     </bean>
 
     <bean id="clazzOne" class="com.izumi.spring.pojo.Clazz">
         <property name="cid" value="1111"></property>
         <property name="cname" value="大班"></property>
+        <property name="students" ref="studentList"></property>
+        <!--<property name="students">-->
+        <!--    <list>-->
+        <!--        <ref bean="studentOne"></ref>-->
+        <!--        <ref bean="studentTwo"></ref>-->
+        <!--        <ref bean="studentThree"></ref>-->
+        <!--    </list>-->
+        <!--</property>-->
     </bean>
+    <!--配置一个集合类型的bean，需要使用util的约束-->
+    <util:list id="studentList">
+        <ref bean="studentOne"></ref>
+        <ref bean="studentTwo"></ref>
+        <ref bean="studentThree"></ref>
+    </util:list>
 </beans>

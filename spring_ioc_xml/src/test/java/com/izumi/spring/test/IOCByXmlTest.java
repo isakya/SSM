@@ -1,5 +1,6 @@
 package com.izumi.spring.test;
 
+import com.izumi.spring.pojo.Clazz;
 import com.izumi.spring.pojo.Person;
 import com.izumi.spring.pojo.Student;
 import org.junit.Test;
@@ -59,7 +60,10 @@ public class IOCByXmlTest {
         // 获取IOC容器
         ApplicationContext ioc = new ClassPathXmlApplicationContext("spring-ioc.xml");
         // 获取bean
-        Student student = ioc.getBean("studentFive", Student.class);
-        System.out.println(student);
+        // Student student = ioc.getBean("studentFive", Student.class);
+        // System.out.println(student);
+
+        Clazz clazz = ioc.getBean("clazzOne", Clazz.class);
+        System.out.println(clazz);
     }
 }

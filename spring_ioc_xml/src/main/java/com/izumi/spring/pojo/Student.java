@@ -1,5 +1,7 @@
 package com.izumi.spring.pojo;
 
+import java.util.Arrays;
+
 public class Student implements Person {
     private Integer sid;
     private String sname;
@@ -7,16 +9,19 @@ public class Student implements Person {
     private String gender;
     private Double score;
     private Clazz clazz;
+    private String[] hobby;
 
     public Student() {
     }
 
-    public Student(Integer sid, String sname, Integer age, String gender, Double score, Clazz clazz) {
+    public Student(Integer sid, String sname, Integer age, String gender, Double score, Clazz clazz, String[] hobby) {
         this.sid = sid;
         this.sname = sname;
         this.age = age;
         this.gender = gender;
         this.score = score;
+        this.clazz = clazz;
+        this.hobby = hobby;
     }
 
     public Student(String s, String s2, String age, String gender) {
@@ -70,6 +75,14 @@ public class Student implements Person {
         this.clazz = clazz;
     }
 
+    public String[] getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String[] hobby) {
+        this.hobby = hobby;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -79,6 +92,7 @@ public class Student implements Person {
                 ", gender='" + gender + '\'' +
                 ", score=" + score +
                 ", clazz=" + clazz +
+                ", hobby=" + Arrays.toString(hobby) +
                 '}';
     }
 }
