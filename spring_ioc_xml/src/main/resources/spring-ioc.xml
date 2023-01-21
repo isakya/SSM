@@ -17,8 +17,20 @@
 
     <bean id="studentThree" class="com.izumi.spring.pojo.Student">
         <constructor-arg value="1002"></constructor-arg>
-        <constructor-arg value="李四"></constructor-arg>
+        <!--
+            <: &lt;
+            >: &gt;
+            CDATA节中的内容会原样解析<![CDATA[...]]>
+        -->
+        <!--<constructor-arg value="&lt;李四&gt;"></constructor-arg>-->
+        <constructor-arg>
+            <value>
+                <![CDATA[<王五>]]>
+            </value>
+        </constructor-arg>
         <constructor-arg value="24" name="age"></constructor-arg>
-        <constructor-arg value="女"></constructor-arg>
+        <constructor-arg name="gender">
+            <null />
+        </constructor-arg>
     </bean>
 </beans>
