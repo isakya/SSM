@@ -6,22 +6,20 @@ public class Student implements Person {
     private Integer age;
     private String gender;
     private Double score;
+    private Clazz clazz;
 
     public Student() {
     }
 
-    public Student(Integer sid, String sname, Integer age, String gender) {
+    public Student(Integer sid, String sname, Integer age, String gender, Double score, Clazz clazz) {
         this.sid = sid;
         this.sname = sname;
         this.age = age;
         this.gender = gender;
+        this.score = score;
     }
 
-    public Student(Integer sid, String sname, Double score, String gender) {
-        this.sid = sid;
-        this.sname = sname;
-        this.age = age;
-        this.gender = gender;
+    public Student(String s, String s2, String age, String gender) {
     }
 
     public Integer getSid() {
@@ -64,6 +62,14 @@ public class Student implements Person {
         this.score = score;
     }
 
+    public Clazz getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(Clazz clazz) {
+        this.clazz = clazz;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
@@ -72,6 +78,7 @@ public class Student implements Person {
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", score=" + score +
+                ", clazz=" + clazz +
                 '}';
     }
 }
