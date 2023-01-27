@@ -11,6 +11,6 @@ public class AOPTest {
     public void testAOPByAnnotation() {
         ApplicationContext ioc = new ClassPathXmlApplicationContext("aop-annotation.xml");
         Calculator calculator = ioc.getBean(Calculator.class);
-        calculator.add(1,1);
+        calculator.div(1,0);
     }
 }

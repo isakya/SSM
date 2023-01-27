@@ -2,10 +2,7 @@ package com.izumi.spring.aop.annotation;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -14,6 +11,9 @@ import java.util.Arrays;
  *
  *  1. 在切面中，需要通过指定的注解将方法标识位通知方法
  * @Before: 前置通知，在模板对象方法执行前执行
+ * @After: 后置通知，在目标对象方法的finally语句中执行的
+ * @AfterReturning：返回通知，在模板方法返回值之后通知
+ * @AfterThrowing: 异常通知，在目标对象方法的catch字句中执行
  *
  *
  * 2. 切入点表达式：设置在表示通知的注解的value属性中
@@ -59,7 +59,35 @@ public class LoggerAspect {
     }
 
     @After("pointCut()")
-    public void afterAdviceMethod() {
+    public void afterAdviceMethod(JoinPoint joinPoint) {
+        // 获取连接点所对应方法的签名信息
+        Signature signature = joinPoint.getSignature();
+        System.out.println("LoggerAspect, 方法： " + signature.getName() + " 执行完毕");
+    }
 
+    /***
+     *      在返回通知中若硬要获取目标对象方法的返回值，
+     *      只需要通过@AfterReturning注解的returning，
+     *      就可以将通知方法的某个参数指定为接收目标对象方法的返回值的参数。
+     *
+     */
+
+    @AfterReturning(value = "pointCut()", returning = "result")
+    public void afterReturningAdviceMethod(JoinPoint joinPoint, Object result) {
+        Signature signature = joinPoint.getSignature();
+        System.out.println("LoggerAspect, 返回通知" + signature.getName() + "，结果：" + result);
+    }
+
+
+    /***
+     *      在返回通知中若硬要获取目标对象方法的异常
+     *      只需要通过@AfterThrowing注解的throwing，
+     *      就可以将通知方法的某个参数指定为接收目标对象方法出现的异常的参数。
+     *
+     */
+    @AfterThrowing(value = "pointCut()", throwing = "ex")
+    public void afterThrowingAdviceMethod(JoinPoint joinPoint, Throwable ex) {
+        Signature signature = joinPoint.getSignature();
+        System.out.println("LoggerAspect,方法：" + signature.getName() + ", 异常通知：" + ex);
     }
 }
