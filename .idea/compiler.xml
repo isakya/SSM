@@ -29,7 +29,7 @@
       <module name="mybatis_resultMap" target="1.5" />
       <module name="spring-aop" target="6" />
       <module name="spring-proxy" target="5" />
-      <module name="spring-transaction" target="17" />
+      <module name="spring-transaction" target="8" />
       <module name="spring_helloworld" target="17" />
       <module name="spring_ioc_annotation" target="1.5" />
       <module name="spring_ioc_xml" target="1.5" />
