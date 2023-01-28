@@ -28,6 +28,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *              "!param": 表示当前请求的请求参数中一定不能携带param参数
  *              "param=value": 表示当前请求的请求参数中必须携带param参数，且值必须为value
  *              "param!=value": 表示当前请求的请求参数中可以不携带param参数，若携带时值不能为value
+ *
+ * 5、@RequestMapping注解的headers属性
+ *      作用：通过请求的请求头信息匹配请求，即浏览器发送的请求，请求头信息必须满足headers属性的设置
  */
 @Controller
 // @RequestMapping("/test")
@@ -35,7 +38,8 @@ public class TestRequestMappingController {
     @RequestMapping(
             value = {"/hello", "/abc"},
             method = {RequestMethod.POST, RequestMethod.GET},
-            params = {"username", "!password", "age=20", "gender!=男"}
+            // params = {"username", "!password", "age=20", "gender!=男"}
+            headers = {"referer"}
     )
 
     public String hello() {
