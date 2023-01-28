@@ -38,6 +38,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *          ?: 任意的单个字符(但不包括 ? 号)
  *          *: 0个 或 多个 任意字符(但不包括?和/)
  *          **: 任意层数的任意目录，注意使用方式： **只能写在双斜线中，前后不能有任何其他字符
+ *
+ *
+ * 7、@RequestMapping注解使用路径中的占位符
+ *      传统： /deleteUser?id=1
+ *      rest：/user/delete/1
+ *          需要在@RequestMapping注解的value属性所设置的路径中，使用{xxx}的方式表示路径中的数据，
+ *          在通过@PathVariable("xxx")注解，将占位符所标识的值和控制器方法的形参进行绑定
  */
 @Controller
 // @RequestMapping("/test")
