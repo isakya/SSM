@@ -14,14 +14,14 @@ public class BookServiceImpl implements BookService {
     private BookDao bookDao;
 
     @Override
-    @Transactional(
+/*    @Transactional(
             // readOnly = true
             // timeout = 3 // 3秒
             // noRollbackFor = ArithmeticException.class
             // noRollbackForClassName = "java.lang.ArithmeticException"
             // isolation = Isolation.DEFAULT
             propagation = Propagation.REQUIRES_NEW
-    )
+    )*/
     public void buyBook(Integer userId, Integer bookId) {
         // 查询图书的价格
         Integer price = bookDao.getPriceByBookId(bookId);

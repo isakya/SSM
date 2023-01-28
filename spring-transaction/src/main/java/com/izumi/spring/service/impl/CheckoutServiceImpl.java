@@ -13,7 +13,7 @@ public class CheckoutServiceImpl implements CheckoutService {
     private BookService bookService;
 
     @Override
-    @Transactional
+    // @Transactional
     public void checkout(Integer userId, Integer[] bookIds) {
         for (Integer bookId : bookIds) {
             bookService.buyBook(userId, bookId);
