@@ -5,8 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
     <context:component-scan base-package="com.izumi.controller"></context:component-scan>
 
-    <!-- 自动扫描包 -->
-    <context:component-scan base-package="com.atguigu.mvc.controller"/>
     <!-- 配置Thymeleaf视图解析器 -->
     <bean id="viewResolver"
           class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
