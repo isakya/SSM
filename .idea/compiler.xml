@@ -9,6 +9,7 @@
         <module name="spring_helloworld" />
         <module name="spring-proxy" />
         <module name="mybatis_resultMap" />
+        <module name="spring_mvc_demo" />
         <module name="mybatis_helloworld" />
         <module name="mybatic_mbg" />
         <module name="spring_mvc_helloworld" />
@@ -34,7 +35,8 @@
       <module name="spring_helloworld" target="17" />
       <module name="spring_ioc_annotation" target="1.5" />
       <module name="spring_ioc_xml" target="1.5" />
-      <module name="spring_mvc_helloworld" target="8" />
+      <module name="spring_mvc_demo" target="8" />
+      <module name="spring_mvc_helloworld" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
