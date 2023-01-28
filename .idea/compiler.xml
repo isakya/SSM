@@ -34,7 +34,7 @@
       <module name="spring_helloworld" target="17" />
       <module name="spring_ioc_annotation" target="1.5" />
       <module name="spring_ioc_xml" target="1.5" />
-      <module name="spring_mvc_helloworld" target="17" />
+      <module name="spring_mvc_helloworld" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
