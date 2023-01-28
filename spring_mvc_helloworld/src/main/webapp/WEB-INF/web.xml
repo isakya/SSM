@@ -5,6 +5,10 @@
          version="4.0">
     <!--
             配置SpringMVC的前端控制器DispatcherServlet
+            SpringMVC的配置文件默认的位置和名称：
+            位置：WEB-INF下
+            名称：<servlet-name>-servlet.xml, 当前配置下的配置文件名为SpringMVC-servlet.xml
+
 
             url-pattern中/和/*的区别：
             /: 匹配浏览器向服务器发送的所有请求（不包括.jsp）
