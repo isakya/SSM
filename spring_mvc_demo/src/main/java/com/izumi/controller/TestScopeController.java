@@ -78,4 +78,15 @@ public class TestScopeController {
         servletContext.setAttribute("testApplicationScope", "hello application");
         return "success";
     }
+
+
+    @RequestMapping("/test/view/forward")
+    public String testInternalResourceView() {
+        return "forward:/test/model";
+    }
+
+    @RequestMapping("/test/view/redirect")
+    public String testRedirectView() {
+        return "redirect:/test/model";
+    }
 }
