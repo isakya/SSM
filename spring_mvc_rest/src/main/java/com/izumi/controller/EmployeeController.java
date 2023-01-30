@@ -63,4 +63,11 @@ public class EmployeeController {
         // 重定向到列表功能： /employee
         return "redirect:/employee";
     }
+
+    @RequestMapping(value = "/employee/{id}", method = RequestMethod.DELETE)
+    public String deleteEmployee(@PathVariable("id") Integer id) {
+        // 删除员工信息
+        employeeDao.delete(id);
+        return "redirect:/employee";
+    }
 }
