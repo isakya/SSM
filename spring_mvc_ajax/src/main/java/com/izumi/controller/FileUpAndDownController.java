@@ -10,10 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.UUID;
 
 /**
  *      ResponseEntity: 可以作为控制器方法的返回值，表示响应到浏览器的完整的响应报文
@@ -29,7 +27,13 @@ public class FileUpAndDownController {
     @RequestMapping("/test/up")
     public String testUp(MultipartFile photo, HttpSession session) throws IOException {
         // 获取上传的文件名
-        String filename = photo.getOriginalFilename();
+        String fileName = photo.getOriginalFilename();
+        // 获取上传的文件的后缀名
+        String hzName = fileName.substring(fileName.lastIndexOf("."));
+        // 获取uuid
+        String uuid = UUID.randomUUID().toString();
+        // 拼接一个新的文件名
+        fileName = uuid + hzName;
         // 获取ServletContext对象
         ServletContext servletContext = session.getServletContext();
         // 获取当前工程下photo目录的真实路径
@@ -40,10 +44,10 @@ public class FileUpAndDownController {
         if(!file.exists()) {
             file.mkdir();
         }
-        String finalPath = photoPath + File.separator + filename;
+        String finalPath = photoPath + File.separator + fileName;
         // 上传文件
         photo.transferTo(new File(finalPath));
-        System.out.println(filename);
+        System.out.println(fileName);
         return "success";
     }
 
