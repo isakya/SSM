@@ -50,6 +50,16 @@
         </mvc:message-converters>
     </mvc:annotation-driven>-->
 
+    <!--
+        配置默认的servlet处理静态资源
+        当前工程的web.xml配置的前端控制器DispatcherServlet的url-pattern是/
+        tomcat的web.xml配置的defaultServlet的url-pattern也是/
+        此时，浏览器发送的请求会有限被DispatcherServlet进行处理，但是DispatcherServlet无法处理静态资源
+        若配置了<mvc:default-servlet-handler />，此时浏览器发送的所有请求都会被DefaultServlet处理
+        若配置了<mvc:default-servlet-handler /> 和 <mvc:annotation-driven />，浏览器发送的请求，会先被DispatcherServlet处理，无法处理再交给DefaultServlet处理
+    -->
+    <mvc:default-servlet-handler />
+
     <!--开启mvc的注解驱动-->
     <mvc:annotation-driven />
     <!--配置视图控制器-->
