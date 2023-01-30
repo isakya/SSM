@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -34,6 +35,7 @@ import java.util.List;
  */
 
 @Controller
+// @RestController Ïàµ±ÓÚ @Controller + @ResponseBody
 public class TestAjaxController {
     @RequestMapping("/test/ajax")
     public void testAjax(Integer id, @RequestBody String requestBody, HttpServletResponse response) throws IOException {
