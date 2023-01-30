@@ -36,4 +36,13 @@ public class EmployeeController {
         return "employee_list";
     }
 
+    @RequestMapping(value = "/employee", method = RequestMethod.POST)
+    public String addEmployee(Employee employee) {
+        // 保存员工信息
+        employeeDao.save(employee);
+        // 重定向到列表功能： /employee
+        return "redirect:/employee";
+    }
+
+
 }
