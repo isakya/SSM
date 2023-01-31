@@ -55,14 +55,14 @@
 
 
 
-    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!--    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
-                <!--key设置要处理的异常，value设置出现该异常时要跳转的页面所对应的逻辑视图-->
+                &lt;!&ndash;key设置要处理的异常，value设置出现该异常时要跳转的页面所对应的逻辑视图&ndash;&gt;
                 <prop key="java.lang.ArithmeticException">error</prop>
             </props>
         </property>
-        <!--设置共享在请求域中的异常信息的属性名-->
+        &lt;!&ndash;设置共享在请求域中的异常信息的属性名&ndash;&gt;
         <property name="exceptionAttribute" value="ex"></property>
-    </bean>
+    </bean>-->
 </beans>
